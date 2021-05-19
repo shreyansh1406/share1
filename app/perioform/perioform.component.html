@@ -1,0 +1,90 @@
+<nav class ="navbar navbar-expand-sm bg-warning ">
+  <div><a   class="navbar-brand">Perioperative Management system</a></div>
+  
+  <ul class="navbar-nav">
+     <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Patients</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/add" class="nav-link">Add New Patient</a></li> 
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/patupdate" class="nav-link">Doctor Login</a></li> -->
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/hom" class="nav-link">LogOut</a></li>
+    
+  </ul>
+  
+  </nav>
+  
+<body>
+  <h3 class="text-center">Patients Diagnosis</h3>
+<div id="fs" class="col-md-6 text-center">
+  
+  <form>
+    <table>
+    <!-- <tr><div class="form-group">
+      <td><label for="d_id">id:</label></td>
+      <td><input type="name" [(ngModel)]="diag.d_id" placeholder="id" name="bp" class="form-control" id="d_id"></td>
+    </div></tr> -->
+
+    <tr><div class="form-group">
+      <td><label >Patient Id:</label></td>
+      <!-- <input  [(ngModel)]="diag.patients" placeholder="Patient Id" name="Patient ID" class="form-control" id="patients"> -->
+    <td>{{id}}</td></div></tr>
+
+    <tr><div class="form-group">
+      <td><label >Patient Name:</label></td>
+      <!-- <input  [(ngModel)]="diag.patients" placeholder="Patient Id" name="Patient ID" class="form-control" id="patients"> -->
+    <td>{{name}}</td></div></tr>
+    
+    <tr><div class="form-group">
+      <td><label for="Age">Bp:</label></td>
+      <td><input [(ngModel)]="diag.bp" placeholder="bp" name="bp" class="form-control" id="bp"></td>
+    </div></tr>
+
+    <tr><div class="form-group">
+      <td><label for="lood_test_results">Blood test results:</label></td>
+      <td><input [(ngModel)]="diag.blood_test_results" placeholder="Blood test results" name="v_date" class="form-control" id="blood_test_results"></td>
+    </div></tr>
+  
+   
+
+    <tr><div class="form-group">
+      <td><label for="surgery_required">Surgery Required:</label></td>
+      <td><input [(ngModel)]="diag.surgery_required" placeholder="Surgery required" name="last_vdate" class="form-control" id="surgery_required"></td>
+    </div></tr>
+    <tr><div class="form-group">
+      <td><label for="surgical_date">Surgical date:</label></td>
+      <td><input [(ngModel)]="diag.surgical_date" placeholder="Surgical date" name="Surgical date" class="form-control" id="surgical_date"></td>
+    </div></tr>
+
+   
+
+    <tr><div class="form-group">
+      <td><label for="anesthetic_name">Anensthesist name:</label></td>
+      <td><input [(ngModel)]="diag.anesthetic_name" placeholder="Symptoms" name="symptoms" class="form-control" id="anesthetic_name"></td>
+    </div></tr>
+
+    <tr><div class="form-group">
+      <td><label for="nurse_name">Nurse name:</label></td>
+      <td><input [(ngModel)]="diag.nurse_name" placeholder="Symptoms" name="symptoms" class="form-control" id="nurse_name"></td>
+    </div></tr>
+
+    <tr><div class="form-group">
+      <td> <label for="diseases">Disease:</label></td>
+       <!-- <input [(ngModel)]="user.emp_id" placeholder="Doctor id" name="symptoms" class="form-control" id="user.doc_id"> -->
+       <td> <select [(ngModel)]="diag.disease" (change)="setChangeHandler($event)">
+        <option value="" disabled selected>diseases</option>
+        <option *ngFor='let n of diseases' value="{{n}}">{{n}}</option>
+      </select></td>
+     </div></tr>
+
+     
+
+    <!-- <div *ngFor='let n of name2'>
+      <p>{{n}}</p>
+    </div> -->
+
+    <button class="btn btn-success" (click)="createpatd()">Save</button>
+    <br>
+    <br>
+    <button class="btn btn-success" [routerLink]="[ '/']" >Back</button>
+  </table></form>
+  </div>
+</body>

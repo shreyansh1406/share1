@@ -1,0 +1,66 @@
+  <nav class ="navbar navbar-expand-sm bg-warning ">
+    <div><a   class="navbar-brand">Perioperative Management system</a></div>
+    
+    <ul class="navbar-nav">
+       <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">View Patients</a></li> -->
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/add" class="nav-link">Add New Patient</a></li> 
+        <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+        <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/patupdate" class="nav-link">Doctor Login</a></li> -->
+        <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/hom" class="nav-link">LogOut</a></li>
+      
+    </ul>
+    
+    </nav>
+    <body>
+    <h3 class="text-center">Add Patients</h3>
+    <div id="fs" class="col-md-6 text-center">
+  <form><table>
+    <tr><div class="form-group">
+      <td><label for="pat_Name">Name:</label></td>
+      <td><input type="name" [(ngModel)]="user.pat_Name" placeholder="Name" name="name" class="form-control" id="pat_Name"></td>
+    </div></tr>
+    
+    <tr><div class="form-group">
+      <td><label for="Age">Age:</label></td>
+      <td><input [(ngModel)]="user.pat_Age" placeholder="Age" name="age" class="form-control" id="age"></td>
+    </div></tr>
+
+    <tr><div class="form-group">
+      <td><label for="v_date">Visiting date:</label></td>
+      <td><input [(ngModel)]="user.v_date" placeholder="visiting date" name="v_date" class="form-control" id="v_date"></td>
+    </div></tr>
+  
+    <tr><div class="form-group">
+      <!-- <label for="patient_ID">Patient Id:</label> -->
+      <input type="hidden" [(ngModel)]="user.patient_ID" placeholder="Patient Id" name="Patient ID" class="form-control" id="patient_ID">
+    </div></tr>
+    <tr><div class="form-group">
+      <td><label for="Last_vdate">Last Visiting Date:</label></td>
+      <td><input [(ngModel)]="user.last_vdate" placeholder="Last Visiting Date" name="last_vdate" class="form-control" id="last_vdate"></td>
+    </div></tr>
+    <tr><div class="form-group">
+      <td><label for="Pat_Symptoms">Symptoms:</label></td>
+      <td><input [(ngModel)]="user.pat_Symptoms" placeholder="Symptoms" name="symptoms" class="form-control" id="pat_Symptoms"></td>
+    </div></tr>
+
+    <tr><div class="form-group">
+     <td> <label for="name">Doctor Assigned:</label></td>
+      <!-- <input [(ngModel)]="user.emp_id" placeholder="Doctor id" name="symptoms" class="form-control" id="user.doc_id"> -->
+      <td><select [(ngModel)]="user.ename" (change)="setChangeHandler($event)">
+        <option value="" disabled selected>Choose Doctor to be Assigned</option>
+        <option *ngFor='let n of name2' value="{{n}}">{{n}}</option>
+      </select></td>
+    </div></tr>
+
+    <!-- <div *ngFor='let n of name2'>
+      <p>{{n}}</p>
+    </div> -->
+<br>
+<br>
+    <button class="btn btn-success" (click)="createEmployee()">Create</button>
+    <br>
+    <br>
+    <!-- <button class="btn btn-success" [routerLink]="[ '/']" >Back</button> -->
+  </table></form>
+  </div>
+</body>
